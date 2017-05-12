@@ -1,6 +1,10 @@
-
+<div>
 <h1 style=" color:green ; text-align :center" > 멋쟁이 사자처럼 대나무숲 </h1>
+</div>
+<div>
+
 <a href="/posts/new"> 글 작성하기 </a>
+</div>
 <br>
 <br>
 <hr>
@@ -14,7 +18,8 @@
     <br>
     
         <form  action="/posts/destroy/<%=p.id%>" method="post">
-            <input type="submit" value ="삭제" style="color:maroon">
+            <button type="submit" value ="삭제" style="color:maroon"> 삭제</button>
+            <button type="submit" value ="삭제" style="color:maroon" formaction= "/posts/edit/<%=p.id%>" formmethod="POST">수정 </button>
         </form>
     <hr>
 <% end %>

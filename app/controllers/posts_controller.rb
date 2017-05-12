@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all 
+    @posts = Post.all.order("id desc") #게시글의 모든것을 가져와
   end
   
   def show
@@ -30,4 +30,20 @@ class PostsController < ApplicationController
     
     redirect_to '/'
   end
+  
+  #게시글 수정하기
+  def edit
+    @post = Post.find(params[:post_id])
+  end
+  
+  
+  #특정 게시글 수정 프로세스
+  def update
+    post = Post.find(params[:post_id])
+    post.title =params[:post_title]
+    post.content =params[:post_content]
+    post.save
+  end
+  
+  
 end
