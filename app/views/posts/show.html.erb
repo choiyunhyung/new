@@ -1,0 +1,17 @@
+<h2 style="text-align :  center"> 게시글 상세보기 </h2>
+
+<h3 style = "color : aqua"><%= @post.title %></h3>
+    <hr>
+<%= @post.content %>
+    <hr>
+<form action="/comments/create" method="POST">
+    <input type="hidden" name ="post_id" value="<%=@post.id%>">
+    <input type="text" name="comment_content" placeholder="내용">
+    <input type="submit" value="댓글달기">
+    
+</form>
+
+<h4 style =" color : olive ; text-align : center"> <댓글목록> </h4>
+    <% @comments.each do |c| %>
+        <p>- <%= c.content %> </p>
+    <% end %>
