@@ -1,9 +1,15 @@
 <div>
-<h1 style=" color:green ; text-align :center" > 멋쟁이 사자처럼 대나무숲 </h1>
+    <h1 style=" color:green ; text-align :center" > 멋쟁이 사자처럼 대나무숲 </h1>
 </div>
-<div>
 
-<a href="/posts/new"> 글 작성하기 </a>
+<div>
+    <a href="/sessions/new"> 로그인 </a><br>
+    <a href="/users/new">회원가입</a><br>
+<h4> 반갑습니다, <%= @user_email%> 님!</h4>
+    <a href="/sessions/destroy">로그아웃 </a><br>
+    <%= render "new" %>
+
+    <a href="/posts/new"> 글 작성하기 </a>
 </div>
 <br>
 <br>
@@ -14,12 +20,9 @@
         <a href="/posts/show/<%=p.id%>" style=" color:teal"> 제목  :   <%= p.title %></a>
     <br>
     <br>
-        <%= p.content %>
-    <br>
-    
-        <form  action="/posts/destroy/<%=p.id%>" method="post">
-            <button type="submit" value ="삭제" style="color:maroon"> 삭제</button>
-            <button type="submit" value ="삭제" style="color:maroon" formaction= "/posts/edit/<%=p.id%>" formmethod="POST">수정 </button>
+        <form action="/posts/edit/<%=p.id%>" method="GET">
+            <button type="submit" value ="수정" style="color:maroon" > 수정</button>
+            <button type="submit" value ="삭제" style="color:maroon" formmethod="POST" formaction= "/posts/destroy/<%=p.id%>" > 삭제 </button>
         </form>
     <hr>
 <% end %>

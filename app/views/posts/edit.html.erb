@@ -1,11 +1,11 @@
 <h2 style =" text-align : center ; background-color : yellow" action="/posts/update/<%=@post.id%>"method ="POST"> <새글 작성하기></h2>
 <hr>
 <br>
-<form action="/posts/create" method="POST">
+<form action="/posts/update/<%=@post.id%>" method="POST">
     <h4> </h4>
-    <input type="text" name="post_title" value="<%= @post.title %>">
+    <input type="text" name="title" value="<%= @post.title %>">
         <br>
-    <input type="text" name="post_content" placeholder="내용을 입력하세요" value= "<%= @post.content %>">
+    <input type="text" name="content" placeholder="내용을 입력하세요" value= "<%= @post.content %>">
         <br>
         <br>
     <input type="submit" value="수정완료!">
